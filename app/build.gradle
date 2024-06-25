@@ -1,0 +1,39 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.ushastoe.settingsF"
+        minSdk 16
+        targetSdkVersion 35
+        versionCode appVerCode.toInteger()
+        versionName appVerName
+    }
+    applicationVariants.configureEach { variant ->
+        variant.resValue "string", "app_version", variant.versionName
+        variant.outputs.configureEach { output ->
+            if (variant.buildType.name == 'release') {
+                outputFileName = "settingsF_${defaultConfig.versionName}.apk"
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    compileOnly 'de.robv.android.xposed:api:82'
+}
+

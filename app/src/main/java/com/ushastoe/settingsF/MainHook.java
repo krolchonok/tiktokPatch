@@ -22,6 +22,7 @@ public class MainHook implements IXposedHookLoadPackage {
                             String versionName = (String) XposedHelpers.getObjectField(packageInfo, "versionName");
                             String packageName = (String) XposedHelpers.getObjectField(packageInfo, "packageName");
                             String newSummary = versionName + "\n" + packageName;
+                            XposedBridge.log("packageName - " + packageName);
                             param.setResult(newSummary);
                         } else {
                             param.setResult(null);

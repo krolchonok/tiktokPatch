@@ -6,8 +6,8 @@ android {
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.ushastoe.settingsF"
-        minSdk 16
+        applicationId "com.ushastoe.statusBarXposed"
+        minSdk 31
         targetSdkVersion 35
         versionCode appVerCode.toInteger()
         versionName appVerName
@@ -16,7 +16,7 @@ android {
         variant.resValue "string", "app_version", variant.versionName
         variant.outputs.configureEach { output ->
             if (variant.buildType.name == 'release') {
-                outputFileName = "settingsF_${defaultConfig.versionName}.apk"
+                outputFileName = "statusBarXposed_${defaultConfig.versionName}.apk"
             }
         }
     }
@@ -31,6 +31,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    namespace 'com.ushastoe.statusBarXposed'
 }
 
 dependencies {

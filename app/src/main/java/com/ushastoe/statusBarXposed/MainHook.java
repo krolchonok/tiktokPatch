@@ -29,6 +29,7 @@ public class MainHook implements IXposedHookLoadPackage, IXposedHookInitPackageR
                 TextView tv = (TextView) param.thisObject;
                 String text = tv.getText().toString();
                 tv.setText(text + " :)");
+                tv.setTextSize(10);
             }
         });
     }
